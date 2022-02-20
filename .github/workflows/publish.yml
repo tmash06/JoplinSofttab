@@ -7,8 +7,8 @@ on:
     branches: [ ]
 
 jobs:
-  build:
-
+  publish:
+    name: build & publish artifacts.
     runs-on: ubuntu-latest
 
     strategy:
@@ -24,3 +24,8 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: Package
+        path: 'publish'
