@@ -6,10 +6,10 @@ module.exports = {
             codeMirrorOptions: {
                 'extraKeys' : {
                     Tab: (cm) => {
-                        var spaces = Array(cm.getOption("indentUnit") + 1).join(" ");
-                        cm.replaceSelection(spaces);
+                        cm.execCommand('indentMore');
                     }
-                }
+                },
+                'indentWithTabs' : false,
             },
         }
     },
